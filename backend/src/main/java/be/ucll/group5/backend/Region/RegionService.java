@@ -2,6 +2,9 @@ package be.ucll.group5.backend.Region;
 
 import java.util.List;
 
+import org.springframework.stereotype.Service;
+
+@Service
 public class RegionService {
     private RegionRepository regionRepository;
 

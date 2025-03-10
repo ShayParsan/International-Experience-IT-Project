@@ -1,12 +1,21 @@
 package be.ucll.group5.backend.Collection;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Repository;
+
+@Repository
 public class CollectionRepository {
     private List<Collection> collections;
 
     public CollectionRepository() {
-        collections.add(new Collection(1, "Collection 1", "Address 1", "1234567890"));
+        this.collections = new ArrayList<>();
+        collections.add(new Collection(1, "Collection1", "Address1", "Number1"));
+        collections.add(new Collection(2, "Collection2", "Address2", "Number2"));
+        collections.add(new Collection(3, "Collection3", "Address3", "Number3"));
+        collections.add(new Collection(4, "Collection4", "Address4", "Number4"));
+        collections.add(new Collection(5, "Collection5", "Address5", "Number5"));
     }
 
     public List<Collection> getCollections() {
