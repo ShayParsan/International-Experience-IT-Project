@@ -1,4 +1,4 @@
-package backEnd.src.main.User;
+package be.ucll.group5.backend.User;
 
 public class User {
     private int id;
