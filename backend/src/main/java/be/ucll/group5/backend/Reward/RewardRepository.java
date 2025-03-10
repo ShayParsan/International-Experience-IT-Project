@@ -1,4 +1,4 @@
-package backEnd.src.main.Reward;
+package be.ucll.group5.backend.Reward;
 
 import java.util.ArrayList;
 import java.util.List;

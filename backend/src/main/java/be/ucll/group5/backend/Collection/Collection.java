@@ -1,4 +1,4 @@
-package backEnd.src.main.Collection;
+package be.ucll.group5.backend.Collection;
 
 public class Collection {
     private int id;

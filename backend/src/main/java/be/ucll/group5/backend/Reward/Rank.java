@@ -1,4 +1,4 @@
-package backEnd.src.main.Reward;
+package be.ucll.group5.backend.Reward;
 
 public class Rank {
     public enum RankType {

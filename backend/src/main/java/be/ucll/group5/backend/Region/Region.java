@@ -1,4 +1,4 @@
-package backEnd.src.main.Region;
+package be.ucll.group5.backend.Region;
 
 public class Region {
     private int id;
