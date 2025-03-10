@@ -30,7 +30,7 @@ public class UserController {
         return userService.addUser(user);
     }
 
-    @PutMapping("{userName}")
+    @PutMapping("/{userName}")
     public User updateUser(String userName, User user) {
         return userService.updateUser(userName, user);
     }
