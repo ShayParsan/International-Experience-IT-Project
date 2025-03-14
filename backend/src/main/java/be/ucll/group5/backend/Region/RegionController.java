@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,23 +19,23 @@ public class RegionController {
         regionService = new RegionService();
     }
 
-    @GetMapping("/regions")
+    @GetMapping
     public List<Region> getRegions() {
         return regionService.getRegions();
     }
 
-    @PutMapping("/regions")
+    @PutMapping
     public void setRegions(List<Region> regions) {
         regionService.setRegions(regions);
     }
 
-    @GetMapping("/regions/{id}")
-    public Region getRegionById(int id) {
+    @GetMapping("/{id}")
+    public Region getRegionById(@PathVariable int id) {
         return regionService.getRegionById(id);
     }
 
-    @PutMapping("/regions/{id}")
-    public void updateRegion(int id, int temperature, Direction.DirectionType windDirection, int ph, int salinity) {
-        regionService.updateRegion(id, temperature, windDirection, ph, salinity);
+    @PutMapping("/{id}")
+    public void updateRegion(@PathVariable int id, Region region) {
+        regionService.updateRegion(id, region);
     }
 }

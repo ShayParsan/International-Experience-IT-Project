@@ -31,12 +31,12 @@ public class UserController {
     }
 
     @PutMapping("/{userName}")
-    public User updateUser(String userName, User user) {
+    public User updateUser(@PathVariable String userName, User user) {
         return userService.updateUser(userName, user);
     }
 
     @DeleteMapping("/{userName}")
-    public void deleteUser( @PathVariable String userName) {
+    public void deleteUser(@PathVariable String userName) {
         userService.deleteUser(userName);
     }
 }

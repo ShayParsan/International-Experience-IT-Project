@@ -19,17 +19,17 @@ public class RewardController {
         rewardService = new RewardService();
     }
 
-    @GetMapping("/rewards")
+    @GetMapping
     public List<Reward> getRewards() {
         return rewardService.getRewards();
     }
 
-    @PostMapping("/rewards")
+    @PostMapping
     public void addReward(Reward reward) {
         rewardService.addReward(reward);
     }
 
-    @DeleteMapping("/rewards")
+    @DeleteMapping
     public void removeReward(Reward reward) {
         rewardService.removeReward(reward);
     }

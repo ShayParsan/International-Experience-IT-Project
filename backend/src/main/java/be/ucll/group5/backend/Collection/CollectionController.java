@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,12 +31,12 @@ public class CollectionController {
     }
 
     @GetMapping("/{id}")
-    public Collection getCollectionById(int id) {
+    public Collection getCollectionById(@PathVariable int id) {
         return collectionService.getCollectionById(id);
     }
 
     @PutMapping("/{id}")
-    public void updateCollection(int id, String name, String address, String number) {
+    public void updateCollection(@PathVariable int id, String name, String address, String number) {
         collectionService.updateCollection(id, name, address, number);
     }
 }

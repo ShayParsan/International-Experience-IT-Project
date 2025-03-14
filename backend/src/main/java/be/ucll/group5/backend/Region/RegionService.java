@@ -30,11 +30,11 @@ public class RegionService {
         return null;
     }
 
-    public void updateRegion(int id, int temperature, Direction.DirectionType windDirection, int ph, int salinity) {
-        Region region = getRegionById(id);
-        region.setTemperature(temperature);
-        region.setWindDirection(new Direction(windDirection));
-        region.setPh(ph);
-        region.setSalinity(salinity);
+    public Region updateRegion(int id, Region region) {
+        if (getRegionById(id) == null) {
+            throw new IllegalArgumentException("Region not found");
+        }
+        regionRepository.updateRegion(id, region);
+        return region;
     }
 }
