@@ -1,26 +1,27 @@
 package be.ucll.group5.backend.Reward;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
+import java.util.List;
 
 @Service
 public class RewardService {
-    private RewardRepository rewardRepository;
 
-    public RewardService() {
-        rewardRepository = new RewardRepository();
+    private final RewardRepository rewardRepository;
+
+    public RewardService(RewardRepository rewardRepository) {
+        this.rewardRepository = rewardRepository;
     }
 
-    public void addReward(Reward reward) {
-        rewardRepository.addReward(reward);
+    public Reward addReward(Reward reward) {
+        rewardRepository.save(reward);
+        return reward;
     }
 
-    public void removeReward(Reward reward) {
-        rewardRepository.removeReward(reward);
+    public void removeReward(Long id) {
+        rewardRepository.deleteById(id);
     }
 
     public List<Reward> getRewards() {
-        return rewardRepository.getRewards();
+        return rewardRepository.findAll();
     }
 }

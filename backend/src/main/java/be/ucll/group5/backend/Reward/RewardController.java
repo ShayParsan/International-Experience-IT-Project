@@ -1,22 +1,17 @@
 package be.ucll.group5.backend.Reward;
 
-import java.util.List;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.RestController;
+import java.util.List;
 
 @RestController
 @RequestMapping("/rewards")
 public class RewardController {
-    @Autowired
-    private RewardService rewardService;
 
-    public RewardController() {
-        rewardService = new RewardService();
+    private final RewardService rewardService;
+
+    public RewardController(RewardService rewardService) {
+        this.rewardService = rewardService;
     }
 
     @GetMapping
@@ -25,12 +20,12 @@ public class RewardController {
     }
 
     @PostMapping
-    public void addReward(Reward reward) {
-        rewardService.addReward(reward);
+    public Reward addReward(@RequestBody Reward reward) {
+        return rewardService.addReward(reward);
     }
 
-    @DeleteMapping
-    public void removeReward(Reward reward) {
-        rewardService.removeReward(reward);
+    @DeleteMapping("/{id}")
+    public void removeReward(@PathVariable Long id) {
+        rewardService.removeReward(id);
     }
 }
