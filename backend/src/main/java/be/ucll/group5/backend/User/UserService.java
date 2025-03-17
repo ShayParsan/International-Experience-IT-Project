@@ -6,44 +6,36 @@ import java.util.List;
 
 @Service
 public class UserService {
-    private UserRepository userRepository = new UserRepository();
+    private final UserRepository userRepository;
 
-    public UserService() {
+    public UserService(UserRepository userRepository) {
+        this.userRepository = userRepository;
     }
 
     public List<User> getUsers() {
-        if (userRepository.getUsers().isEmpty()) {
+        List<User> users = userRepository.findAll();
+        if (users.isEmpty()) {
             throw new IllegalArgumentException("No users found");
         }
-        return userRepository.getUsers();
+        return users;
     }
 
     public User getUser(String userName) {
-        if (userRepository.getUser(userName) == null) {
-            throw new IllegalArgumentException("User not found");
-
-        }
-        return userRepository.getUser(userName);
+        return userRepository.findByUserName(userName);
     }
 
     public User addUser(User user) {
-        userRepository.addUser(user);
-        return user;
+        return userRepository.save(user);
     }
 
     public User updateUser(String userName, User user) {
-        if (userRepository.getUser(userName) == null) {
-            throw new IllegalArgumentException("User not found");
-        }
-        userRepository.updateUser(userName, user);
-        return user;
+        User existingUser = getUser(userName);
+        user.setId(existingUser.getId()); // Ensure ID remains the same
+        return userRepository.save(user);
     }
 
     public void deleteUser(String userName) {
-        if (userRepository.getUser(userName) == null) {
-            throw new IllegalArgumentException("User not found");
-        }
-        userRepository.deleteUser(userName);
+        User user = getUser(userName);
+        userRepository.delete(user);
     }
-
 }
