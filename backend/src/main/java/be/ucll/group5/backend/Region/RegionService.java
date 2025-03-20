@@ -1,40 +1,39 @@
 package be.ucll.group5.backend.Region;
 
-import java.util.List;
-
 import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RegionService {
-    private RegionRepository regionRepository;
 
-    public RegionService() {
-        regionRepository = new RegionRepository();
+    private final RegionRepository regionRepository;
+
+    public RegionService(RegionRepository regionRepository) {
+        this.regionRepository = regionRepository;
     }
 
     public List<Region> getRegions() {
-        return regionRepository.getRegions();
+        return regionRepository.findAll();
     }
 
     public void setRegions(List<Region> regions) {
-        regionRepository.setRegions(regions);
+        regionRepository.saveAll(regions);
     }
 
-    public Region getRegionById(int id) {
-        List<Region> regions = regionRepository.getRegions();
-        for (Region region : regions) {
-            if (region.getId() == id) {
-                return region;
-            }
-        }
-        return null;
+    public Region getRegionById(Long id) {
+        return regionRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Region not found"));
     }
 
-    public Region updateRegion(int id, Region region) {
-        if (getRegionById(id) == null) {
-            throw new IllegalArgumentException("Region not found");
-        }
-        regionRepository.updateRegion(id, region);
-        return region;
+    public Region updateRegion(Long id, Region region) {
+        Region existingRegion = getRegionById(id);
+        existingRegion.setTemperature(region.getTemperature());
+        existingRegion.setWindDirection(region.getWindDirection());
+        existingRegion.setPh(region.getPh());
+        existingRegion.setSalinity(region.getSalinity());
+
+        return regionRepository.save(existingRegion);
     }
 }

@@ -1,22 +1,20 @@
 package be.ucll.group5.backend.Region;
 
-import java.util.List;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Tag(name = "Region Management", description = "APIs for managing regions")
 @RestController
 @RequestMapping("/regions")
 public class RegionController {
-    @Autowired
-    private RegionService regionService;
 
-    public RegionController() {
-        regionService = new RegionService();
+    private final RegionService regionService;
+
+    public RegionController(RegionService regionService) {
+        this.regionService = regionService;
     }
 
     @Operation(summary = "Get all regions", description = "Returns a list of all regions in the system")
@@ -25,7 +23,7 @@ public class RegionController {
         return regionService.getRegions();
     }
 
-    @Operation(summary = "Set the list of regions", description = "Sets the list of regions")
+    @Operation(summary = "Set the list of regions", description = "Replaces the list of regions with new ones")
     @PutMapping
     public void setRegions(@RequestBody List<Region> regions) {
         regionService.setRegions(regions);
@@ -33,13 +31,13 @@ public class RegionController {
 
     @Operation(summary = "Get region by ID", description = "Returns region details by ID")
     @GetMapping("/{id}")
-    public Region getRegionById(@PathVariable int id) {
+    public Region getRegionById(@PathVariable Long id) {
         return regionService.getRegionById(id);
     }
 
     @Operation(summary = "Update region", description = "Updates an existing region by ID")
     @PutMapping("/{id}")
-    public void updateRegion(@PathVariable int id, @RequestBody Region region) {
-        regionService.updateRegion(id, region);
+    public Region updateRegion(@PathVariable Long id, @RequestBody Region region) {
+        return regionService.updateRegion(id, region);
     }
 }

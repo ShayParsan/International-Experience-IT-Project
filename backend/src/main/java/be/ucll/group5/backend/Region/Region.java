@@ -1,22 +1,46 @@
 package be.ucll.group5.backend.Region;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "regions") // Avoid using "region" as it might be a reserved keyword
 public class Region {
-    private int id;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(nullable = false)
     private int temperature;
+
+    @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Direction windDirection;
+
+    @Column(nullable = false)
     private int ph;
+
+    @Column(nullable = false)
     private int salinity;
 
-    public Region(int id, int temperature, Direction windDirection, int ph, int salinity) {
-        this.id = id;
+    // No-arg constructor (required by JPA)
+    public Region() {}
+
+    // Constructor
+    public Region(int temperature, Direction windDirection, int ph, int salinity) {
         this.temperature = temperature;
         this.windDirection = windDirection;
         this.ph = ph;
         this.salinity = salinity;
     }
 
-    public int getId() {
+    // Getters & Setters
+    public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public int getTemperature() {
