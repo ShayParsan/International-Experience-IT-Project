@@ -31,8 +31,8 @@ public class UserController {
 
     @Operation(summary = "Add a new user", description = "Creates a new user")
     @PostMapping
-    public User addUser(@RequestBody User user) {
-        return userService.addUser(user);
+    public User addUser(@RequestBody UserInput userInput) {
+        return userService.addUser(userInput);
     }
 
     @Operation(summary = "Update user", description = "Updates an existing user by username")

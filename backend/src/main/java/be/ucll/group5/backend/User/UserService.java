@@ -24,7 +24,18 @@ public class UserService {
         return userRepository.findByUserName(userName);
     }
 
-    public User addUser(User user) {
+    public User addUser(UserInput userInput) {
+        if (userRepository.findByUserName(userInput.username()) != null) {
+            throw new IllegalArgumentException("User already exists");
+
+        }
+        final var user = new User(
+                userInput.username(),
+                userInput.password(),
+                userInput.email(),
+                userInput.firstName(),
+                userInput.lastName());
+
         return userRepository.save(user);
     }
 

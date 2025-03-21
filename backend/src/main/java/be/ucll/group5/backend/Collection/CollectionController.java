@@ -31,8 +31,8 @@ public class CollectionController {
 
     @Operation(summary = "Add a new collection", description = "Creates a new collection")
     @PostMapping
-    public Collection addCollection(@RequestBody Collection collection) {
-        return collectionService.addCollection(collection);
+    public Collection addCollection(@RequestBody CollectionInput collectionInput) {
+        return collectionService.addCollection(collectionInput);
     }
 
     @Operation(summary = "Update collection", description = "Updates an existing collection by ID")

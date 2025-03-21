@@ -12,7 +12,9 @@ public class RewardService {
         this.rewardRepository = rewardRepository;
     }
 
-    public Reward addReward(Reward reward) {
+    public Reward addReward(RewardInput rewardInput) {
+        Reward reward = new Reward(rewardInput.name(), rewardInput.description(), rewardInput.date(),
+                rewardInput.rank());
         rewardRepository.save(reward);
         return reward;
     }

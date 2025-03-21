@@ -21,7 +21,9 @@ public class CollectionService {
                 .orElseThrow(() -> new IllegalArgumentException("Collection not found"));
     }
 
-    public Collection addCollection(Collection collection) {
+    public Collection addCollection(CollectionInput collectionInput) {
+        Collection collection = new Collection(collectionInput.name(), collectionInput.address(),
+                collectionInput.number());
         return collectionRepository.save(collection);
     }
 

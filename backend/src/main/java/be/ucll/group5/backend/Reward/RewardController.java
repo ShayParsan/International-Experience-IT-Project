@@ -31,8 +31,8 @@ public class RewardController {
 
     @Operation(summary = "Add a new reward", description = "Creates a new reward and saves it to the database")
     @PostMapping
-    public Reward addReward(@RequestBody Reward reward) {
-        return rewardService.addReward(reward);
+    public Reward addReward(@RequestBody RewardInput rewardInput) {
+        return rewardService.addReward(rewardInput);
     }
 
     @Operation(summary = "Delete a reward", description = "Removes a reward by its ID")
