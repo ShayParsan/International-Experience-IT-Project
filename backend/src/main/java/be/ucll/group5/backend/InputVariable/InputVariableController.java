@@ -24,17 +24,22 @@ public class InputVariableController {
         return inputVariableService.findAll();
     }
 
+    @GetMapping("/last/{x}")
+    @Operation(summary = "Get the last x input variables")
+    public List<InputVariable> getLastXInputVariables(
+            @Parameter(description = "Number of input variables to be obtained") @PathVariable int x) {
+        return inputVariableService.findLastX(x);
+    }
+
     @GetMapping("/{id}")
     @Operation(summary = "Get an input variable by ID")
     @ApiResponses(value = {
-            @ApiResponse(responseCode = "200", description = "Found the input variable",
-                    content = {@Content(mediaType = "application/json",
-                            schema = @Schema(implementation = InputVariable.class))}),
-            @ApiResponse(responseCode = "404", description = "Input variable not found",
-                    content = @Content)
+            @ApiResponse(responseCode = "200", description = "Found the input variable", content = {
+                    @Content(mediaType = "application/json", schema = @Schema(implementation = InputVariable.class)) }),
+            @ApiResponse(responseCode = "404", description = "Input variable not found", content = @Content)
     })
-    public ResponseEntity<InputVariable> getInputVariableById(@Parameter(description = "ID of the input variable to be obtained")
-                                                              @PathVariable Long id) {
+    public ResponseEntity<InputVariable> getInputVariableById(
+            @Parameter(description = "ID of the input variable to be obtained") @PathVariable Long id) {
         return inputVariableService.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -48,8 +53,8 @@ public class InputVariableController {
 
     @DeleteMapping("/{id}")
     @Operation(summary = "Delete an input variable")
-    public ResponseEntity<Void> deleteInputVariable(@Parameter(description = "ID of the input variable to be deleted")
-                                                    @PathVariable Long id) {
+    public ResponseEntity<Void> deleteInputVariable(
+            @Parameter(description = "ID of the input variable to be deleted") @PathVariable Long id) {
         inputVariableService.deleteById(id);
         return ResponseEntity.ok().build();
     }

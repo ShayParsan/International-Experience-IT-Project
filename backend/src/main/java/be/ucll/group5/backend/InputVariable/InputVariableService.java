@@ -15,6 +15,12 @@ public class InputVariableService {
         return inputVariableRepository.findAll();
     }
 
+    public List<InputVariable> findLastX(int x) {
+        List<InputVariable> allVariables = inputVariableRepository.findAll();
+        int size = allVariables.size();
+        return allVariables.subList(Math.max(size - x, 0), size);
+    }
+
     public Optional<InputVariable> findById(Long id) {
         return inputVariableRepository.findById(id);
     }
