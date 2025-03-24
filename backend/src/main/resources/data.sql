@@ -56,6 +56,21 @@ CREATE TABLE collections (
 INSERT INTO collections (name, address, number) VALUES
                                                     ('Collection1', 'Address1', 'Number1'),
                                                     ('Collection2', 'Address2', 'Number2'),
-                                                    ('Collection3', 'Address3', 'Number3'),
-                                                    ('Collection4', 'Address4', 'Number4'),
-                                                    ('Collection5', 'Address5', 'Number5');
+                                                    ('Collection3', 'Address3', 'Number3');
+
+CREATE TABLE input_variable (
+                                id INT AUTO_INCREMENT PRIMARY KEY,
+                                time TIMESTAMP NOT NULL,
+                                temperature FLOAT,
+                                ph FLOAT
+);
+
+-- Insert Sample Values
+INSERT INTO input_variable (time, temperature, ph) VALUES
+                                                       ('2023-03-24 08:00:00', 22.5, 7.1),
+                                                       ('2023-03-24 09:00:00', 23.0, 7.2),
+                                                       ('2023-03-24 10:00:00', 23.5, 7.3),
+                                                       ('2023-03-24 11:00:00', 24.0, 7.4),
+                                                       ('2023-03-24 12:00:00', 24.5, 7.5),
+                                                       ('2023-03-24 13:00:00', 25.0, 7.6),
+                                                       ('2023-03-24 14:00:00', 25.5, 7.7);
