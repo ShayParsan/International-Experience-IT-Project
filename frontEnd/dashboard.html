@@ -1,0 +1,243 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>Hartebeesport Dam Water Hyacinth Monitoring - Sensor Data</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="index.html" class="logo"><strong>Hartebeesport Dam </strong>Water Hyacinth Monitoring</a>
+            <ul class="icons">
+              <li><button onclick="openLogin()" class="button">Login</button></li>
+              <li><button onclick="openRegister()" class="button">Register</button></li>
+            </ul>
+          </header>
+          
+          <!-- Login/Register modals -->
+          <div id="loginModal" class="login-modal">
+            <div class="login-container">
+              <span class="close-btn" onclick="closeLogin()">×</span>
+              <h2>Login</h2>
+              <form id="loginForm">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
+                <button type="submit" class="button">Login</button>
+              </form>
+            </div>
+          </div>
+          <div id="registerModal" class="login-modal">
+            <div class="login-container">
+              <span class="close-btn" onclick="closeRegister()">×</span>
+              <h2>Register</h2>
+              <form id="registerForm">
+                <input type="text" id="regUsername" name="regUsername" placeholder="Username" required>
+                <input type="email" id="regEmail" name="regEmail" placeholder="Email" required>
+                <input type="text" id="regFirstName" name="regFirstName" placeholder="First Name" required>
+                <input type="text" id="regLastName" name="regLastName" placeholder="Last Name" required>
+                <input type="password" id="regPassword" name="regPassword" placeholder="Password" required>
+                <button type="submit" class="button">Register</button>
+              </form>
+            </div>
+          </div>
+
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h1>Sensor Data Visualization</h1>
+            </header>
+            <p>This chart displays temperature and pH levels over time.</p>
+            <div class="content">
+              <!-- Single canvas for both datasets -->
+              <canvas id="combinedChart"></canvas>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      	<!-- Sidebar -->
+					<div id="sidebar">
+						<div class="inner">
+
+							<!-- Search -->
+								<section id="search" class="alt">
+									<form method="post" action="#">
+										<input type="text" name="query" id="query" placeholder="Search" />
+									</form>
+								</section>
+
+							<!-- Menu -->
+							<nav id="menu">
+								<header class="major">
+									<h2>Menu</h2>
+								</header>
+								<ul>
+									<li><a href="index.html">Homepage</a></li>
+									<li>
+										<span class="opener">Dashboard</span>
+										<ul>
+											<li><a href="dashboard.html">Data Insights</a></li>
+											<li><a href="dashboard.html">Monitoring Tools</a></li>
+										</ul>
+									</li>
+									<li>
+										<span class="opener">Community</span>
+										<ul>
+											<li><a href="#">Forum</a></li>
+											<li><a href="Community Engagement.html#cleanUpEvents">Clean up events</a></li>
+											<li><a href="#">Volunteer</a></li>
+											<li><a href="#">My Volunteer rewards</a></li>
+										</ul>
+									</li>
+									<li>
+										<span class="opener">More</span>
+										<ul>
+											<li><a href="#">Guides</a></li>
+											<li><a href="#">FAQ</a></li>
+											<li><a href="#">Policy Updates</a></li>
+											<li><a href="#">Contact Us/Help</a></li>
+										</ul>
+									</li>
+									
+									<li><a href="#">Success Stories</a></li>
+									<li><a href="#">About Us</a></li>
+								</ul>
+							</nav>
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>Recent Updates</h2>
+								</header>
+								<div class="mini-posts">
+									<article>
+										<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
+										<p>Recent Data Submission</p>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
+										<p>Community Highlight</p>
+									</article>
+									<article>
+										<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
+										<p>Upcoming Cleanup Event</p>
+									</article>
+								</div>
+								<ul class="actions">
+									<li><a href="#" class="button">More</a></li>
+								</ul>
+							</section>
+
+						<!-- Section -->
+							<section>
+								<header class="major">
+									<h2>Get in touch</h2>
+								</header>
+								<p>For inquiries or contributions related to water hyacinth monitoring, please contact our team.</p>
+								<ul class="contact">
+									<li class="icon solid fa-envelope"><a href="#">info@hartebeesportdamhyacinthProject.org</a></li>
+									<li class="icon solid fa-phone">(000) 000-0000</li>
+									<li class="icon solid fa-home">Hartebeesport Dam<br />
+										forgot the City, South Africa</li>
+								</ul>
+							</section>
+
+							<!-- Footer -->
+								<footer id="footer">
+									<p class="copyright">&copy; Untitled. All rights reserved. Demo Images: <a href="https://unsplash.com">Unsplash</a>. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+								</footer>
+
+						</div>
+					</div>
+
+			</div>
+
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/loginregister.js"></script>
+
+    <!-- Chart.js Script -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const mockData = [
+          { "id": 1, "time": "2023-03-24T07:00:00.000+00:00", "temperature": 22.5, "ph": 7.1 },
+          { "id": 2, "time": "2023-03-24T08:00:00.000+00:00", "temperature": 23.0, "ph": 7.2 },
+          { "id": 3, "time": "2023-03-24T09:00:00.000+00:00", "temperature": 22.8, "ph": 7.0 },
+          { "id": 4, "time": "2023-03-24T10:00:00.000+00:00", "temperature": 23.5, "ph": 7.3 },
+          { "id": 5, "time": "2023-03-24T11:00:00.000+00:00", "temperature": 24.0, "ph": 7.1 }
+        ];
+
+        const labels = mockData.map(item => new Date(item.time).toLocaleTimeString());
+        const temperatures = mockData.map(item => item.temperature);
+        const phLevels = mockData.map(item => item.ph);
+
+        new Chart(document.getElementById("combinedChart"), {
+          type: "line",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Temperature (°C)",
+                data: temperatures,
+                borderColor: "red",
+                backgroundColor: "rgba(255, 0, 0, 0.1)",
+                borderWidth: 2,
+                fill: true,
+                yAxisID: 'y-temp'
+              },
+              {
+                label: "pH Level",
+                data: phLevels,
+                borderColor: "blue",
+                backgroundColor: "rgba(0, 0, 255, 0.1)",
+                borderWidth: 2,
+                fill: true,
+                yAxisID: 'y-ph'
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            scales: {
+              'y-temp': {
+                type: 'linear',
+                position: 'left',
+                title: {
+                  display: true,
+                  text: "Temperature (°C)"
+                }
+              },
+              'y-ph': {
+                type: 'linear',
+                position: 'right',
+                title: {
+                  display: true,
+                  text: "pH Level"
+                },
+                grid: {
+                  drawOnChartArea: false
+                }
+              }
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
