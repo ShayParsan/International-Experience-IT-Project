@@ -1,5 +1,6 @@
 package be.ucll.group5.backend.User;
 
+import be.ucll.group5.backend.Reward.Reward;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.web.bind.annotation.*;
@@ -45,5 +46,11 @@ public class UserController {
     @DeleteMapping("/{userName}")
     public void deleteUser(@PathVariable String userName) {
         userService.deleteUser(userName);
+    }
+
+    @Operation(summary = "Get rewards of a user", description = "Returns all rewards assigned to a user by user ID")
+    @GetMapping("/{userId}/rewards")
+    public List<Reward> getUserRewards(@PathVariable int userId) {
+        return userService.getUserRewards(userId);
     }
 }

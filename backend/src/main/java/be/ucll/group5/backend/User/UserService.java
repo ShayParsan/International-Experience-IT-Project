@@ -1,5 +1,6 @@
 package be.ucll.group5.backend.User;
 
+import be.ucll.group5.backend.Reward.Reward;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,7 +28,6 @@ public class UserService {
     public User addUser(UserInput userInput) {
         if (userRepository.findByUserName(userInput.username()) != null) {
             throw new IllegalArgumentException("User already exists");
-
         }
         final var user = new User(
                 userInput.username(),
@@ -48,5 +48,11 @@ public class UserService {
     public void deleteUser(String userName) {
         User user = getUser(userName);
         userRepository.delete(user);
+    }
+
+    public List<Reward> getUserRewards(int userId) {
+        User user = userRepository.findById(userId)
+                .orElseThrow(() -> new IllegalArgumentException("User not found"));
+        return user.getRewards();
     }
 }

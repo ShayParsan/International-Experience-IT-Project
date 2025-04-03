@@ -13,21 +13,25 @@ INSERT INTO users (user_name, password, email, first_name, last_name) VALUES
                                                                           ('user1', 'password1', 'user1@example.com', 'FirstName1', 'LastName1'),
                                                                           ('user2', 'password2', 'user2@example.com', 'FirstName2', 'LastName2');
 
+
+
 -- Create Rewards Table
 CREATE TABLE rewards (
                          id INT AUTO_INCREMENT PRIMARY KEY,
                          name VARCHAR(255) NOT NULL UNIQUE,
                          description TEXT NOT NULL,
                          date DATE NOT NULL,
-                         rank VARCHAR(50) NOT NULL
+                         rank VARCHAR(50) NOT NULL,
+                         user_id INT,
+                         FOREIGN KEY (user_id) REFERENCES users(id)
 );
 
 -- Insert Sample Rewards
-INSERT INTO rewards (name, description, date, rank) VALUES
-                                                        ('Gold Medal', 'Awarded for first place', CURRENT_DATE, 'GOLD'),
-                                                        ('Silver Medal', 'Awarded for second place', CURRENT_DATE, 'SILVER'),
-                                                        ('Bronze Medal', 'Awarded for third place', CURRENT_DATE, 'BRONZE'),
-                                                        ('Platinum Medal', 'Awarded for special achievement', CURRENT_DATE, 'PLATINUM');
+INSERT INTO rewards (name, description, date, rank, user_id) VALUES
+                                                                 ('Gold Medal', 'Awarded for first place', CURRENT_DATE, 'GOLD', 1),
+                                                                 ('Silver Medal', 'Awarded for second place', CURRENT_DATE, 'SILVER', 1),
+                                                                 ('Bronze Medal', 'Awarded for third place', CURRENT_DATE, 'BRONZE', 2),
+                                                                 ('Platinum Medal', 'Awarded for special achievement', CURRENT_DATE, 'PLATINUM', 2);
 
 -- Create Regions Table
 CREATE TABLE regions (
@@ -58,6 +62,7 @@ INSERT INTO collections (name, address, number) VALUES
                                                     ('Collection2', 'Address2', 'Number2'),
                                                     ('Collection3', 'Address3', 'Number3');
 
+-- Create Input Variable Table
 CREATE TABLE input_variable (
                                 id INT AUTO_INCREMENT PRIMARY KEY,
                                 time TIMESTAMP NOT NULL,
@@ -77,3 +82,9 @@ INSERT INTO input_variable (time, temperature, ph) VALUES
                                                        ('2023-03-24 15:00:00', 26.0, 7.8),
                                                        ('2023-03-24 16:00:00', 26.5, 7.9),
                                                        ('2023-03-24 17:00:00', 27.0, 8.0);
+
+INSERT INTO users (user_name, password, email, first_name, last_name) VALUES
+    ('john_doe', 'secure123', 'john@example.com', 'John', 'Doe');
+
+INSERT INTO rewards (name, description, date, rank, user_id) VALUES
+    ('Diamond Medal', 'Elite achievement award', CURRENT_DATE, 'DIAMOND', 3);

@@ -1,13 +1,17 @@
 package be.ucll.group5.backend.User;
 
+import be.ucll.group5.backend.Reward.Reward;
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
-@Table(name = "users") // Change table name to avoid conflicts with reserved keywords
+@Table(name = "users") // Avoid reserved keyword
 public class User {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-incremented primary key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(nullable = false, unique = true)
@@ -25,11 +29,13 @@ public class User {
     @Column(nullable = false)
     private String lastName;
 
-    // No-argument constructor (required by JPA)
-    public User() {
-    }
 
-    // Parameterized constructor
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+    private List<Reward> rewards = new ArrayList<>();
+
+    // Constructors
+    public User() {}
+
     public User(String userName, String password, String email, String firstName, String lastName) {
         this.userName = userName;
         this.password = password;
@@ -52,9 +58,7 @@ public class User {
     }
 
     public void setUserName(String userName) {
-        if (userName != null) {
-            this.userName = userName;
-        }
+        if (userName != null) this.userName = userName;
     }
 
     public String getPassword() {
@@ -78,9 +82,7 @@ public class User {
     }
 
     public void setFirstName(String firstName) {
-        if (firstName != null) {
-            this.firstName = firstName;
-        }
+        if (firstName != null) this.firstName = firstName;
     }
 
     public String getLastName() {
@@ -88,8 +90,14 @@ public class User {
     }
 
     public void setLastName(String lastName) {
-        if (lastName != null) {
-            this.lastName = lastName;
-        }
+        if (lastName != null) this.lastName = lastName;
+    }
+
+    public List<Reward> getRewards() {
+        return rewards;
+    }
+
+    public void setRewards(List<Reward> rewards) {
+        this.rewards = rewards;
     }
 }

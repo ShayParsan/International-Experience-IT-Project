@@ -6,12 +6,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
-
-import io.swagger.v3.oas.annotations.Operation;
-import io.swagger.v3.oas.annotations.tags.Tag;
-
 @Tag(name = "Reward Management", description = "APIs for managing rewards")
 @RestController
 @RequestMapping("/rewards")
@@ -39,5 +33,11 @@ public class RewardController {
     @DeleteMapping("/{id}")
     public void removeReward(@PathVariable Long id) {
         rewardService.removeReward(id);
+    }
+
+    @Operation(summary = "Assign reward to user", description = "Assigns a reward to a specific user")
+    @PostMapping("/assign/{userId}")
+    public Reward assignToUser(@PathVariable int userId, @RequestBody Reward reward) {
+        return rewardService.assignRewardToUser(userId, reward);
     }
 }

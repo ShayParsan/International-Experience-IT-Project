@@ -1,5 +1,7 @@
 package be.ucll.group5.backend.Reward;
 
+import be.ucll.group5.backend.User.User;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
@@ -24,7 +26,12 @@ public class Reward {
     @Column(nullable = false)
     private Rank rank;
 
-    // No-arg constructor required by JPA
+    @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    // No-arg constructor
     public Reward() {}
 
     public Reward(String name, String description, LocalDate date, Rank rank) {
@@ -79,5 +86,13 @@ public class Reward {
 
     public void setRank(Rank rank) {
         this.rank = rank;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
