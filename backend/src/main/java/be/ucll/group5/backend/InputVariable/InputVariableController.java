@@ -58,4 +58,21 @@ public class InputVariableController {
         inputVariableService.deleteById(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping("/tds")
+    @Operation(summary = "Get all TDS (ppm) values")
+    public List<Float> getAllTdsValues() {
+        return inputVariableService.findAll().stream()
+                .map(InputVariable::getTds)
+                .toList();
+    }
+
+    @GetMapping("/growth")
+    @Operation(summary = "Get all Water Hyacinth Growth (kg/m²) values")
+    public List<Float> getAllGrowthValues() {
+        return inputVariableService.findAll().stream()
+                .map(InputVariable::getWaterHyacinthGrowth)
+                .toList();
+    }
+
 }

@@ -1,10 +1,6 @@
 package be.ucll.group5.backend.InputVariable;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Table;
 import jakarta.persistence.*;
-
 
 @Entity
 @Table(name = "input_variable")
@@ -22,6 +18,12 @@ public class InputVariable {
 
     @Column(nullable = true)
     private Float ph;
+
+    @Column(nullable = true)
+    private Float tds; // TDS (ppm)
+
+    @Column(nullable = true, name = "water_hyacinth_growth")
+    private Float waterHyacinthGrowth; // Water Hyacinth Growth (kg/m²)
 
     // Getters and Setters
     public Long getId() {
@@ -54,5 +56,21 @@ public class InputVariable {
 
     public void setPh(Float ph) {
         this.ph = ph;
+    }
+
+    public Float getTds() {
+        return tds;
+    }
+
+    public void setTds(Float tds) {
+        this.tds = tds;
+    }
+
+    public Float getWaterHyacinthGrowth() {
+        return waterHyacinthGrowth;
+    }
+
+    public void setWaterHyacinthGrowth(Float waterHyacinthGrowth) {
+        this.waterHyacinthGrowth = waterHyacinthGrowth;
     }
 }
