@@ -1,61 +1,69 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
-import pickle
-import numpy as np
+from fastapi import FastAPI
+from matplotlib import pyplot as plt
 import pandas as pd
 import requests
+from prophet import Prophet
+from datetime import datetime, timedelta
 
-app = Flask(__name__)
-CORS(app)
+app = FastAPI()
 
-# Load the trained model
-with open('model.pkl', 'rb') as file:
-    model = pickle.load(file)
-
-@app.route('/predictDays/<int:days>', methods=['GET'])
-def predict_days(days):
-    # Fetch latest data
+@app.get("/predictDays/{days}")
+def predict_days(days: int):
+    # Load data from your local API
     response = requests.get("http://localhost:8080/inputVariables")
-    data = response.json()
-    df = pd.DataFrame(data)
-    df['time'] = pd.to_datetime(df['time'])
-    df.sort_values('time', inplace=True)
+    if response.status_code != 200:
+        return {"error": "Could not fetch input data."}
+    
+    raw_data = response.json()
 
-    # Prepare a copy to simulate forward
-    sim_df = df.copy()
-    predictions = []
+    # Convert to DataFrame
+    df = pd.DataFrame(raw_data)
+    df["ds"] = pd.to_datetime(df["time"]).dt.tz_localize(None)  # Remove timezone information
+    df["y"] = df["waterHyacinthGrowth"]
+    df = df[["ds", "y"]]
 
-    for i in range(days):
-        last_row = sim_df.iloc[-1].copy()  # Use the last row to simulate the next day
-        future_time = last_row['time'] + pd.Timedelta(days=1)
+    # Train Prophet model
+    model = Prophet(yearly_seasonality=True, daily_seasonality=False)
+    model.fit(df)
 
-        # Seasonal features
-        sin_doy = np.sin(2 * np.pi * future_time.dayofyear / 365)
-        cos_doy = np.cos(2 * np.pi * future_time.dayofyear / 365)
+    # Future dataframe
+    future = model.make_future_dataframe(periods=days)
+    forecast = model.predict(future)
 
-        # Construct input row with only the features used during training
-        model_input = pd.DataFrame([{
-            'sin_doy': sin_doy,
-            'cos_doy': cos_doy
-        }])
+    # Filter only future predictions
+    forecast = forecast.tail(days)
 
-        # Predict growth
-        predicted_growth = model.predict(model_input)[0]
-
-        # Store prediction
-        predictions.append({
-            'day': i + 1,
-            'time': future_time.strftime('%Y-%m-%d'),
-            'prediction': predicted_growth
+    results = []
+    last_date = df["ds"].max()
+    for i, row in enumerate(forecast.itertuples(), start=1):
+        results.append({
+            "day": i,
+            "prediction": round(row.yhat, 4),
+            "time": row.ds.strftime("%Y-%m-%d")
         })
 
-        # Append simulated row for the next iteration
-        sim_df = pd.concat([sim_df, pd.DataFrame([{
-            'time': future_time,
-            'waterHyacinthGrowth': predicted_growth
-        }])], ignore_index=True)
+    # Plot predictions
+    plot_predictions(df, forecast)
 
-    return jsonify(predictions)
+    return results
 
-if __name__ == '__main__':
-    app.run(debug=True)
+def plot_predictions(df, forecast):
+    """Plot the actual data and predictions."""
+    plt.figure(figsize=(12, 6))
+    plt.plot(df["ds"], df["y"], label="Actual Data", marker="o")
+    plt.plot(forecast["ds"], forecast["yhat"], label="Predicted Data", linestyle="--")
+    plt.fill_between(
+        forecast["ds"],
+        forecast["yhat_lower"],
+        forecast["yhat_upper"],
+        color="gray",
+        alpha=0.2,
+        label="Uncertainty Interval"
+    )
+    plt.xlabel("Date")
+    plt.ylabel("Water Hyacinth Growth")
+    plt.title("Water Hyacinth Growth Predictions")
+    plt.legend()
+    plt.grid()
+    plt.savefig("predictions_plot.png")  # Save the plot as an image
+    plt.close()  # Close the plot to free memory
