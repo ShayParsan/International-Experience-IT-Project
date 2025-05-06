@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      About Us- Hartebeesport Dam Water Hyacinth Monitoring
+    </title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="index.html" class="logo"><strong>Hartebeesport Dam </strong>Water Hyacinth Monitoring</a>
+            <ul class="icons">
+              <li>
+                <button onclick="openLogin()" class="button">Login</button>
+              </li>
+              <li>
+                <button onclick="openRegister()" class="button">
+                  Register
+                </button>
+              </li>
+            </ul>
+          </header>
+          <div id="loginModal" class="login-modal">
+            <!-- login popup -->
+            <div class="login-container">
+              <span class="close-btn" onclick="closeLogin()">×</span>
+              <h2>Login</h2>
+              <form id="loginForm">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                  required
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+                <button type="submit" class="button">Login</button>
+              </form>
+            </div>
+          </div>
+          <div id="registerModal" class="login-modal">
+            <!-- register popup-->
+            <div class="login-container">
+              <span class="close-btn" onclick="closeRegister()">×</span>
+              <h2>Register</h2>
+              <form id="registerForm">
+                <input
+                  type="text"
+                  id="regUsername"
+                  name="regUsername"
+                  placeholder="Username"
+                  required
+                />
+                <input
+                  type="email"
+                  id="regEmail"
+                  name="regEmail"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  type="text"
+                  id="regFirstName"
+                  name="regFirstName"
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  type="text"
+                  id="regLastName"
+                  name="regLastName"
+                  placeholder="Last Name"
+                  required
+                />
+                <input
+                  type="password"
+                  id="regPassword"
+                  name="regPassword"
+                  placeholder="Password"
+                  required
+                />
+                <button type="submit" class="button">Register</button>
+              </form>
+            </div>
+          </div>
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h1>Some information about us</h1>
+            </header>
+            
+            <h2>The team</h2>
+            <p>
+              A warm welcome from our team:
+              <ul>
+                <li>Adrian Griesel</li>
+                <li>Joppe Bergmans</li>
+                <li>Ann-Mari De Beer</li>
+                <li>Shay Parsan</li>
+                <li>Joao Victor Santos</li>
+              </ul>
+            </p>
+
+            <h2>The problem</h2>
+            <p>
+                The proliferation of water hyacinth in Hartbeespoort has become a serious problem in the dam and other bodies 
+                of water around South Africa. The invasive species has been spreading widely since its first introduction to 
+                the continent and is taking over and eliminating several ecological niches. The main issues with the plant 
+                are its ability to grow in large patches and cover big areas of the lake’s surface. This blocks waterways, 
+                limits boat traffic and covers the underlying ecosystem in darkness. Furthermore, due to the dense matting 
+                of hyacinth, the chemical composition of the water gets altered as well. The main threat of the invasive 
+                species is twofold: the plants are destroying ecosystems and reducing water access for people living near the dam.  
+            </p>
+
+            <h2>Our Goal</h2>
+            <p>
+                We created this website with the intension to provide a company with the interface to easily:
+                <ul>
+                    <li>Attract community interested.</li>
+                    <li>Educate the community on the urgancy of the situation.</li>
+                    <li>Provide the community with an easy way to view hyacinth data.</li>
+                    <li>Show hyacinth predictions.</li>
+                    <li>Recruit and manage comunity members who wish to help aid in the hyacinth removal.</li>
+                  </ul>
+
+            </p>
+
+            <span class="image main"><img src="images/pic11.jpg" alt=""/></span>
+          <!-- Content end-->
+        </div>
+      </div>
+
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <div class="inner">
+          <!-- Search -->
+          <section id="search" class="alt">
+            <form method="post" action="#">
+              <input type="text" name="query" id="query" placeholder="Search" />
+            </form>
+          </section>
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Menu</h2>
+            </header>
+            <ul>
+              <li><a href="index.html">Homepage</a></li>
+              <li>
+                <span class="opener">Dashboard</span>
+                <ul>
+                  <li><a href="dashboard.html">Data Insights<br>(Sensor Data Visualization)</a></li>
+                  <li><a href="Prediction.html">Monitoring Tools<br>(Prediction Over Time)</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <span class="opener">Community</span>
+                <ul>
+                  <!--<li><a href="#">Forum</a></li>-->
+                  <li>
+                    <a href="Community Engagement.html">Community Engagement</a>
+                  </li>
+                  <li>
+                    <a href="Community Engagement.html#cleanUpEvents">Clean up events</a>
+                  </li>
+                  <li>
+                    <a href="Community Engagement.html#volunteerStories">Volunteer stories</a>
+                  </li>
+                </ul>
+              </li>
+
+              <li>
+                <span class="opener">Volunteering</span>
+                <ul>
+                  <!--<li><a href="#">Forum</a></li>-->
+                  <li><a href="volunteerNow.html">Volunteer now</a></li>
+                  <li><a href="#">My Volunteer rewards</a></li>
+                  <li><a href="dropoff.html">Find Closest Collection Drop‑Offs</a></li>
+                </ul>
+              </li>
+
+              <li>
+                <span class="opener">More</span>
+                <ul>
+                  <li><a href="faq.html">FAQ</a></li>
+                  <li><a href="aboutUs.html">About Us</a></li>
+                  <li><a href="contact.html">Contact Us / Help page</a></li>
+                </ul>
+              </li>
+              
+          </nav>
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Recent Updates</h2>
+            </header>
+            <div class="mini-posts">
+              <article>
+                <a href="dashboard.html" class="image"
+                  ><img src="images/pic07.jpg" alt=""/></a>
+                <p>Latest hyacinth growth</p>
+              </article>
+              <article>
+                <a href="Community Engagement.html#volunteerSpotlight" class="image"
+                  ><img src="images/pic12.jpg" alt=""/></a>
+                <p>Community Highlight</p>
+              </article>
+              <article>
+                <a href="Community Engagement.html#cleanUpEvents" class="image" 
+                  ><img src="images/pic05.jpg" alt=""/></a>
+                <p>Upcoming Cleanup Event</p>
+              </article>
+            </div>
+          </section>
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Get in touch</h2>
+            </header>
+            <p>
+              For inquiries or contributions related to water hyacinth
+              monitoring, please contact our team.
+            </p>
+            <ul class="contact">
+              <li class="icon solid fa-envelope">
+                <a href="#">info@hartbeesprtdamhyacinthPrj.org</a>
+              </li>
+              <li class="icon solid fa-phone">(000) 000-0000</li>
+              <li class="icon solid fa-home">
+                Hartebeesport Dam<br />
+                Hartbeespoort, South Africa
+              </li>
+            </ul>
+          </section>
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; Hartebeesport Dam Water Hyacinth Monitoring. 
+              All rights reserved.
+            </p>
+          </footer>
+        </div>
+      </div>
+      <!--side bar close-->
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/loginregister.js"></script>
+
+  </body>
+</html>
