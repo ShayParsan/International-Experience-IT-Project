@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>
+      Information & Education- Hartebeesport Dam Water Hyacinth Monitoring
+    </title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Main -->
+      <div id="main">
+        <div class="inner">
+          <!-- Header -->
+          <header id="header">
+            <a href="index.html" class="logo"
+              ><strong>Hartebeesport Dam </strong>Water Hyacinth Monitoring</a
+            >
+            <ul class="icons">
+              <li>
+                <button onclick="openLogin()" class="button">Login</button>
+              </li>
+              <li>
+                <button onclick="openRegister()" class="button">
+                  Register
+                </button>
+              </li>
+            </ul>
+          </header>
+          <div id="loginModal" class="login-modal">
+            <!-- login popup -->
+            <div class="login-container">
+              <span class="close-btn" onclick="closeLogin()">×</span>
+              <h2>Login</h2>
+              <form id="loginForm">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  placeholder="Username"
+                  required
+                />
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="Password"
+                  required
+                />
+                <button type="submit" class="button">Login</button>
+              </form>
+            </div>
+          </div>
+          <div id="registerModal" class="login-modal">
+            <!-- register popup-->
+            <div class="login-container">
+              <span class="close-btn" onclick="closeRegister()">×</span>
+              <h2>Register</h2>
+              <form id="registerForm">
+                <input
+                  type="text"
+                  id="regUsername"
+                  name="regUsername"
+                  placeholder="Username"
+                  required
+                />
+                <input
+                  type="email"
+                  id="regEmail"
+                  name="regEmail"
+                  placeholder="Email"
+                  required
+                />
+                <input
+                  type="text"
+                  id="regFirstName"
+                  name="regFirstName"
+                  placeholder="First Name"
+                  required
+                />
+                <input
+                  type="text"
+                  id="regLastName"
+                  name="regLastName"
+                  placeholder="Last Name"
+                  required
+                />
+                <input
+                  type="password"
+                  id="regPassword"
+                  name="regPassword"
+                  placeholder="Password"
+                  required
+                />
+                <button type="submit" class="button">Register</button>
+              </form>
+            </div>
+          </div>
+          <!-- Content -->
+          <section>
+            <header class="main">
+              <h1>Information & Education</h1>
+            </header>
+            <span class="image main"
+              ><img src="images/pic14.jpg" alt=""
+            /></span>
+            <p>
+              Welcome to our Information & Education hub, where we provide
+              resources on the management and mitigation of water hyacinth
+              infestations.
+            </p>
+            <p>
+              Explore detailed guides, expert advice, and case studies on how to
+              manage water hyacinth growth in local water bodies. Learn about
+              the environmental impacts and best practices for removal and
+              prevention.
+            </p>
+            <p>
+              Our platform aims to raise awareness, educate, and equip you with
+              the knowledge needed to take action against water hyacinth
+              infestations in your community.
+            </p>
+
+            <p>
+              This page serves as an index to different useful resources on the 
+              hyacinth so that you can get all the information you need from one 
+              centralised point instead of searching the entire internet.
+
+              However, should you wish to view the raw data, etc., please click <a href="dashboard.html">here</a> to go to our visualization page.
+            </p>
+
+            <hr class="major" />
+            <h2>Educational Resources</h2>
+            <span class="image main"
+              ><img src="images/pic06.jpg" alt=""
+            /></span>
+            <p>
+              Access articles, research papers, and video tutorials on
+              understanding the science behind water hyacinths and methods to
+              combat their growth. Our resources are designed for both experts
+              and community members interested in contributing to the cause.
+            </p>
+            <ul>
+              <li>
+                <strong>Research Article:</strong>
+                <a
+                  href="https://www.researchgate.net/publication/327045086"
+                  target="_blank"
+                  >Water Hyacinth: Its Ecology, Impacts, and Management</a
+                >
+                – A comprehensive guide to the science and management of water
+                hyacinths.
+              </li>
+              <li>
+                <strong>Invasive Species Information:</strong>
+                <a
+                  href="https://www.cabi.org/isc/datasheet/20707"
+                  target="_blank"
+                  >Eichhornia crassipes (Water Hyacinth) - CABI</a
+                >
+                – Detailed data on the water hyacinth species, its spread, and
+                impacts.
+              </li>
+              <li>
+                <strong>Environmental Guide:</strong>
+                <a
+                  href="https://invasives.org.za/fact-sheet/water-hyacinth/"
+                  target="_blank"
+                  >Invasive Alien Species - The hyacinth</a
+                >
+                – A guide on invasive alien species specifically the water
+                hyacinth in South Africa.
+              </li>
+              <li>
+                <strong>Fighting Water Hyacinth:</strong>
+                <a
+                  href="https://invasives.org.za/wp-content/uploads/2022/05/Water-hyacinth-control-%E2%80%93-Guideline-document.pdf"
+                  target="_blank"
+                  >Water Hyacinth Control</a
+                >
+                – Overview of methods to control the spread of water hyacinth.
+              </li>
+              <li>
+                <strong>Case Study on Removal:</strong>
+                <a
+                  href="https://www.researchgate.net/publication/330107755"
+                  target="_blank"
+                  >Manual Removal of Water Hyacinth</a
+                >
+                – Practical approaches for removing the species in waterways.
+              </li>
+            </ul>
+            <hr class="major" />
+            <h2>Educational Insights</h2>
+            <span class="image main"
+              ><img src="images/pic15.jpg" alt=""
+            /></span>
+            <p>
+              Learn more about water hyacinth, its environmental impact, and
+              successful management strategies implemented worldwide.
+            </p>
+            <h3>Water Hyacinth Growth and Environmental Impact</h3>
+            <p>
+              Water hyacinth (Eichhornia crassipes) is an invasive aquatic plant
+              species that causes significant damage to freshwater ecosystems.
+              By rapidly covering water surfaces, it blocks sunlight, depletes
+              oxygen levels, and disrupts aquatic life. Its unchecked growth
+              leads to reduced biodiversity and hampers water activities such as
+              fishing and boating.
+            </p>
+            <p>
+              To prevent these negative effects, various management techniques
+              such as mechanical removal, herbicide application, and biological
+              control are employed. In some regions, community-based efforts
+              have been pivotal in limiting its spread and restoring ecological
+              balance.
+            </p>
+            <h3>Best Practices for Removal and Prevention</h3>
+            <p>Effective control of water hyacinth includes:</p>
+            <ul>
+              <li>
+                <strong>Mechanical Removal:</strong> This method involves
+                physically removing the plants from water bodies using boats,
+                dredges, or aquatic harvesters.
+              </li>
+              <li>
+                <strong>Biological Control:</strong> Introducing natural
+                predators or pathogens that target the water hyacinth without
+                harming other species.
+              </li>
+              <li>
+                <strong>Chemical Control:</strong> Using herbicides to target
+                and kill the water hyacinths, although this method is often
+                controversial due to potential side effects on the surrounding
+                environment.
+              </li>
+              <li>
+                <strong>Prevention Strategies:</strong> Preventing the spread of
+                water hyacinth through local regulations, educating communities,
+                and promoting sustainable water management practices.
+              </li>
+            </ul>
+            <hr class="major" />
+            <h2 id="educationalreasourcesAnsSources">
+              Additional Educational Resources and Sources
+            </h2>
+            <p>
+              Here you will find a collection of resources that support the
+              ongoing efforts to manage water hyacinth infestations. These
+              include research papers, government reports, and environmental
+              guidelines aimed at informing the public and professionals alike
+              on best practices.
+            </p>
+            <h3>Videos</h3>
+            <span class="image main"
+              ><img src="images/pic17.jpg" alt=""
+            /></span>
+            <ul>
+              <li>
+                <strong>Water Hyacinth: INFO</strong> – WATER HYACINTH
+                Information, Description & More! (Eichhornia crassipes)
+                <a
+                  href="https://www.youtube.com/watch?v=cFPV2pXQGVA"
+                  target="_blank"
+                  >Watch the video</a
+                >
+              </li>
+              <li>
+                <strong>Water Hyacinth Removal in Action</strong> – Practical
+                techniques demonstrated for removing water hyacinth from
+                freshwater bodies.
+                <a
+                  href="https://www.youtube.com/watch?v=JYflz8Q43Tw"
+                  target="_blank"
+                  >Watch the video</a
+                >
+              </li>
+              <li>
+                <strong>Using Water Hyacinth to make animal feeds</strong> –
+                Water hyacinth an invasive weed that traces its origin from the
+                Amazon basin continues to wreak havoc on lake Victoria. Biofit
+                Agritec Enterprises hopes to turn this situation around by using
+                as much water hyacinth as possible to make animal feeds as they
+                work towards restoring the lakes landscape. So how does it work?
+                <a
+                  href="https://www.youtube.com/watch?v=JYflz8Q43Tw"
+                  target="_blank"
+                  >Watch the video</a
+                >
+              </li>
+            </ul>
+            <hr class="major" />
+            <h2>References</h2>
+            <ul>
+              <li>
+                Ghosh, P. (2020).
+                <em>The Water Hyacinth: Ecology, Management, and Utilization</em
+                >. Elsevier.
+                <a
+                  href="https://www.researchgate.net/publication/327045086"
+                  target="_blank"
+                  >Link</a
+                >
+              </li>
+              <li>
+                Center for Agriculture and Bioscience International (CABI).
+                (2023).
+                <em>Invasive Species Compendium: Eichhornia crassipes</em>.
+                <a
+                  href="https://www.cabi.org/isc/datasheet/20707"
+                  target="_blank"
+                  >Link</a
+                >
+              </li>
+              <li>
+                SANBI. (2022). <em>Water Hyacinth – Eichhornia crassipes</em>.
+                South African National Biodiversity Institute.
+                <a
+                  href="https://www.sanbi.org/what-we-do/invasives/"
+                  target="_blank"
+                  >Link</a
+                >
+              </li>
+              <li>
+                Water Hyacinth Control. (2023).
+                <em>Control Methods for Water Hyacinth</em>. Water Hyacinth
+                Control.
+                <a href="https://www.waterhyacinthcontrol.com/" target="_blank"
+                  >Link</a
+                >
+              </li>
+              <li>
+                ResearchGate. (2019).
+                <em>Manual Removal of Water Hyacinth: Case Study</em>.
+                <a
+                  href="https://www.researchgate.net/publication/330107755"
+                  target="_blank"
+                  >Link</a
+                >
+              </li>
+            </ul>
+
+            <hr class="major" />
+            <p>
+              Should you wish to view the raw data, etc., please click <a href="dashboard.html">here</a> to go to our visualization page.
+            </p>
+
+          </section>
+          <!-- Content end-->
+        </div>
+      </div>
+      <!-- Sidebar -->
+      <div id="sidebar">
+        <div class="inner">
+          <!-- Search -->
+          <section id="search" class="alt">
+            <form method="post" action="#">
+              <input type="text" name="query" id="query" placeholder="Search" />
+            </form>
+          </section>
+          <!-- Menu -->
+          <nav id="menu">
+            <header class="major">
+              <h2>Menu</h2>
+            </header>
+            <ul>
+              <li><a href="index.html">Homepage</a></li>
+              <li>
+                <span class="opener">Dashboard</span>
+                <ul>
+                  <li><a href="dashboard.html">Data Insights</a></li>
+                  <li><a href="dashboard.html">Monitoring Tools</a></li>
+                </ul>
+              </li>
+              <li>
+                <span class="opener">Community</span>
+                <ul>
+                  <li><a href="#">Forum</a></li>
+                  <li>
+                    <a href="Community Engagement.html">Community Engagement</a>
+                  </li>
+                  <li>
+                    <a href="Community Engagement.html#cleanUpEvents"
+                      >Clean up events</a
+                    >
+                  </li>
+                  <li><a href="volunteerNow.html">Volunteer</a></li>
+                  <li><a href="#">My Volunteer rewards</a></li>
+                </ul>
+              </li>
+              <li>
+                <span class="opener">More</span>
+                <ul>
+                  <li><a href="#">Guides</a></li>
+                  <li><a href="faq.html">FAQ</a></li>
+                  <li><a href="#">Policy Updates</a></li>
+                  <li><a href="contact.html">Contact Us/Help</a></li>
+                </ul>
+              </li>
+              <li><a href="#">Success Stories</a></li>
+              <li><a href="#">About Us</a></li>
+            </ul>
+          </nav>
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Recent Updates</h2>
+            </header>
+            <div class="mini-posts">
+              <article>
+                <a href="dashboard.html" class="image"
+                  ><img src="images/pic07.jpg" alt=""
+                /></a>
+                <p>Latest hyacinth growth</p>
+              </article>
+              <article>
+                <a href="Community Engagement.html" class="image"
+                  ><img src="images/pic12.jpg" alt=""
+                /></a>
+                <p>Community Highlight</p>
+              </article>
+              <article>
+                <a href="#" class="image"
+                  ><img src="images/pic05.jpg" alt=""
+                /></a>
+                <p>Upcoming Cleanup Event</p>
+              </article>
+            </div>
+            <ul class="actions">
+              <li><a href="#" class="button">More</a></li>
+            </ul>
+          </section>
+          <!-- Section -->
+          <section>
+            <header class="major">
+              <h2>Get in touch</h2>
+            </header>
+            <p>
+              For inquiries or contributions related to water hyacinth
+              monitoring, please contact our team.
+            </p>
+            <ul class="contact">
+              <li class="icon solid fa-envelope">
+                <a href="#">info@hartbeesprtdamhyacinthPrj.org</a>
+              </li>
+              <li class="icon solid fa-phone">(000) 000-0000</li>
+              <li class="icon solid fa-home">
+                Hartebeesport Dam<br />
+                City xyz, South Africa
+              </li>
+            </ul>
+          </section>
+          <!-- Footer -->
+          <footer id="footer">
+            <p class="copyright">
+              &copy; Hartebeesport Dam Water Hyacinth Monitoring. All rights
+              reserved. Images:
+              <a href="images used link">images used link here</a>.
+            </p>
+          </footer>
+        </div>
+      </div>
+      <!--side bar close-->
+    </div>
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/loginregister.js"></script>
+
+  </body>
+</html>
