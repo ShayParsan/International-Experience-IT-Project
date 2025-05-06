@@ -1,30 +1,36 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Hartebeesport Dam Water Hyacinth Monitoring - Sensor Data</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- SheetJS library for parsing Excel in the browser -->
-    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   </head>
   <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
-
       <!-- Main -->
       <div id="main">
         <div class="inner">
           <!-- Header -->
           <header id="header">
-            <a href="index.html" class="logo"><strong>Hartebeesport Dam </strong>Water Hyacinth Monitoring</a>
+            <a href="index.html" class="logo"
+              ><strong>Hartebeesport Dam </strong>Water Hyacinth Monitoring</a
+            >
             <ul class="icons">
-              <li><button onclick="openLogin()" class="button">Login</button></li>
-              <li><button onclick="openRegister()" class="button">Register</button></li>
+              <li>
+                <button onclick="openLogin()" class="button">Login</button>
+              </li>
+              <li>
+                <button onclick="openRegister()" class="button">
+                  Register
+                </button>
+              </li>
             </ul>
           </header>
-          
           <!-- Content -->
           <section>
             <header class="main">
@@ -32,9 +38,10 @@
             </header>
             <p>Filter by date and choose aggregation to smooth performance.</p>
             <div class="filters">
-              <label>Start: <input type="date" id="startDate"></label>
-              <label>End: <input type="date" id="endDate"></label>
-              <label>Aggregation:
+              <label>Start: <input type="date" id="startDate" /></label>
+              <label>End: <input type="date" id="endDate" /></label>
+              <label>
+                Aggregation:
                 <select id="aggSelect">
                   <option value="none">None</option>
                   <option value="daily">Daily Average</option>
@@ -42,13 +49,11 @@
                   <option value="yearly">Yearly Average</option>
                 </select>
               </label>
-              
               <button id="applyBtn" class="button">Apply</button>
               <button id="resetBtn" class="button">Reset Date</button>
-
             </div>
             <div class="content">
-              <canvas id="combinedChart"></canvas> 
+              <canvas id="combinedChart"></canvas>
             </div>
             <div class="content">
               <canvas id="nitrateChart"></canvas>
@@ -65,18 +70,15 @@
           </section>
         </div>
       </div>
-
       <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
-
           <!-- Search -->
           <section id="search" class="alt">
             <form method="post" action="#">
               <input type="text" name="query" id="query" placeholder="Search" />
             </form>
           </section>
-
           <!-- Menu -->
           <nav id="menu">
             <header class="major">
@@ -95,8 +97,14 @@
                 <span class="opener">Community</span>
                 <ul>
                   <li><a href="#">Forum</a></li>
-                  <li><a href="Community Engagement.html">Community Engagement</a></li>
-                  <li><a href="Community Engagement.html#cleanUpEvents">Clean up events</a></li>
+                  <li>
+                    <a href="Community Engagement.html">Community Engagement</a>
+                  </li>
+                  <li>
+                    <a href="Community Engagement.html#cleanUpEvents"
+                      >Clean up events</a
+                    >
+                  </li>
                   <li><a href="volunteerNow.html">Volunteer</a></li>
                   <li><a href="#">My Volunteer rewards</a></li>
                 </ul>
@@ -114,7 +122,6 @@
               <li><a href="#">About Us</a></li>
             </ul>
           </nav>
-
           <!-- Recent Updates -->
           <section>
             <header class="major">
@@ -122,15 +129,21 @@
             </header>
             <div class="mini-posts">
               <article>
-                <a href="dashboard.html" class="image"><img src="images/pic07.jpg" alt="" /></a>
+                <a href="dashboard.html" class="image"
+                  ><img src="images/pic07.jpg" alt=""
+                /></a>
                 <p>Latest hyacinth growth</p>
               </article>
               <article>
-                <a href="Community Engagement.html" class="image"><img src="images/pic12.jpg" alt="" /></a>
+                <a href="Community Engagement.html" class="image"
+                  ><img src="images/pic12.jpg" alt=""
+                /></a>
                 <p>Community Highlight</p>
               </article>
               <article>
-                <a href="#" class="image"><img src="images/pic05.jpg" alt="" /></a>
+                <a href="#" class="image"
+                  ><img src="images/pic05.jpg" alt=""
+                /></a>
                 <p>Upcoming Cleanup Event</p>
               </article>
             </div>
@@ -138,32 +151,37 @@
               <li><a href="#" class="button">More</a></li>
             </ul>
           </section>
-
           <!-- Contact -->
           <section>
             <header class="major">
               <h2>Get in touch</h2>
             </header>
-            <p>For inquiries or contributions related to water hyacinth monitoring, please contact our team.</p>
+            <p>
+              For inquiries or contributions related to water hyacinth
+              monitoring, please contact our team.
+            </p>
             <ul class="contact">
-              <li class="icon solid fa-envelope"><a href="#">info@hartbeesprtdamhyacinthPrj.org</a></li>
+              <li class="icon solid fa-envelope">
+                <a href="#">info@hartbeesprtdamhyacinthPrj.org</a>
+              </li>
               <li class="icon solid fa-phone">(000) 000-0000</li>
-              <li class="icon solid fa-home">Hartebeesport Dam<br />City xyz, South Africa</li>
+              <li class="icon solid fa-home">
+                Hartebeesport Dam<br />City xyz, South Africa
+              </li>
             </ul>
           </section>
-
           <!-- Footer -->
           <footer id="footer">
-            <p class="copyright">&copy; Hartebeesport Dam Water Hyacinth Monitoring. All rights reserved.
-              Images: <a href="images used link">images used link here</a>.</p>
+            <p class="copyright">
+              &copy; Hartebeesport Dam Water Hyacinth Monitoring. All rights
+              reserved. Images:
+              <a href="images used link">images used link here</a>.
+            </p>
           </footer>
-
         </div>
       </div>
       <!-- Sidebar close -->
-
     </div>
-
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
@@ -171,12 +189,8 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/loginregister.js"></script>
-    <script src="assets/js/sensor-charts.js"> </script>
-
-    <!-- Chart.js + data loading + filtering -->
-    <script>
-      
-    </script>
-    
+    <script src="assets/js/sensor-charts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
   </body>
 </html>
