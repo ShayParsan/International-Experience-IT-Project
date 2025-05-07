@@ -297,3 +297,32 @@ INSERT INTO users (user_name, password, email, first_name, last_name) VALUES
 
 INSERT INTO rewards (name, description, date, rank, user_id) VALUES
     ('Diamond Medal', 'Elite achievement award', CURRENT_DATE, 'DIAMOND', 3);
+
+
+
+
+-- Add user Koos (password hashed with SHA-256)
+INSERT INTO users (user_name, password, email, first_name, last_name) VALUES
+    ('Koos', 'a665a45920422f9d417e4867efdc4fb8a04a1f3fff1fa07e998e86f7f7a27ae3', 'koos@example.com', 'Koos', 'Pretorius');
+
+
+
+INSERT INTO rewards (name, description, date, rank, user_id) VALUES
+    ('Koos Starter Badge',   'Awarded for signing up',           CURRENT_DATE, 'BRONZE',   4),
+    ('Koos Quick Learner',    'Completed first tutorial',         CURRENT_DATE, 'SILVER',   4),
+    ('Koos Consistency Star', 'Logged in 7 days in a row',        CURRENT_DATE, 'GOLD',     4),
+    ('Koos Power User',       'Reached power-user level',         CURRENT_DATE, 'PLATINUM', 4),
+    ('Koos Elite Achiever',   'Top 1% of activity this month',    CURRENT_DATE, 'DIAMOND',  4),
+    ('Koos Marathoner',       'Performed 100 actions total',      CURRENT_DATE, 'GOLD',     4),
+    ('Koos Social Butterfly', 'Made 50 connections',              CURRENT_DATE, 'SILVER',   4),
+    ('Koos Feedback Guru',    'Submitted 20 feedback items',      CURRENT_DATE, 'BRONZE',   4),
+    ('Koos Community Helper', 'Helped other users 30 times',      CURRENT_DATE, 'PLATINUM', 4),
+    ('Koos Hall of Fame',     'Lifetime achievement recognition', CURRENT_DATE, 'DIAMOND',  4);
+
+
+INSERT INTO collections (name, address, number) VALUES
+    ('Koos Water Samples',        '101 Sample St, Testville',          101),
+    ('Koos River Collection',      '202 River Rd, Flowtown',            202),
+    ('Koos Lake Survey',           '303 Lakeview Dr, Watertown',        303),
+    ('Koos Coastal Analysis',      '404 Ocean Ave, Shore City',         404),
+    ('Koos Well Monitoring',       '505 Well Rd, Depthsville',          505);
