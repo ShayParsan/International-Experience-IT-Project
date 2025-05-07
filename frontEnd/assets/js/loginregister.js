@@ -91,6 +91,7 @@ document.addEventListener("DOMContentLoaded", function () {
                     localStorage.setItem("user", username);
                     closeLogin();
                     checkUserStatus();
+                    location.reload();
                 } else {
                     alert("Incorrect password.");
                 }
