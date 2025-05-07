@@ -37,9 +37,9 @@
               </li>
             </ul>
           </header>
-          <!-- Login/Register Modals -->
+
+          <!-- Login Modal -->
           <div id="loginModal" class="login-modal">
-            <!-- login popup -->
             <div class="login-container">
               <span class="close-btn" onclick="closeLogin()">×</span>
               <h2>Login</h2>
@@ -62,8 +62,9 @@
               </form>
             </div>
           </div>
+
+          <!-- Register Modal -->
           <div id="registerModal" class="login-modal">
-            <!-- register popup-->
             <div class="login-container">
               <span class="close-btn" onclick="closeRegister()">×</span>
               <h2>Register</h2>
@@ -107,19 +108,31 @@
               </form>
             </div>
           </div>
+
           <!-- Content -->
           <section>
             <header class="main">
               <h1>Collections Management</h1>
             </header>
             <p>
-              Manage collections details. You can add, update, or delete
-              collections.
+              Manage collections details. You can add, update, or delete your
+              own collections.
             </p>
+
             <!-- Add Collection Form -->
             <section>
               <h2>Add a New Collection</h2>
               <form id="collectionForm">
+                <div id="nameInputRow" class="field">
+                  <label for="collectionName">Name</label>
+                  <input
+                    type="text"
+                    id="collectionName"
+                    name="collectionName"
+                    placeholder="Your Name"
+                    required
+                  />
+                </div>
                 <div class="field">
                   <label for="collectionAddress">Address</label>
                   <input
@@ -143,26 +156,27 @@
                 <button type="submit" class="button">Add Collection</button>
               </form>
             </section>
-            <!-- Collections List -->
-            <section>
+
+            <!-- All Collections (hidden until login) -->
+            <section id="collectionsSection" style="display: none">
               <h2>All Collections</h2>
               <div class="table-wrapper">
                 <table id="collectionsTable">
                   <thead>
                     <tr>
                       <th>ID</th>
-                      <th>Name</th>
                       <th>Address</th>
                       <th>Amount</th>
                       <th>Actions</th>
                     </tr>
                   </thead>
                   <tbody>
-                    <!-- Collections will be populated here -->
+                    <!-- Populated by JS -->
                   </tbody>
                 </table>
               </div>
             </section>
+
             <!-- Update Collection Modal -->
             <div id="updateModal" class="modal">
               <div class="modal-content">
@@ -170,6 +184,7 @@
                 <h2>Update Collection</h2>
                 <form id="updateCollectionForm">
                   <input type="hidden" id="updateCollectionId" />
+                  <input type="hidden" id="updateCollectionName" />
                   <div class="field">
                     <label for="updateCollectionAddress">Address</label>
                     <input type="text" id="updateCollectionAddress" required />
@@ -187,6 +202,7 @@
           </section>
         </div>
       </div>
+
       <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
@@ -196,6 +212,7 @@
               <input type="text" name="query" id="query" placeholder="Search" />
             </form>
           </section>
+
           <!-- Menu -->
           <nav id="menu">
             <header class="major">
@@ -239,11 +256,10 @@
               <li><a href="#">About Us</a></li>
             </ul>
           </nav>
-          <!-- Section -->
+
+          <!-- Recent Updates -->
           <section>
-            <header class="major">
-              <h2>Recent Updates</h2>
-            </header>
+            <header class="major"><h2>Recent Updates</h2></header>
             <div class="mini-posts">
               <article>
                 <a href="dashboard.html" class="image"
@@ -268,11 +284,10 @@
               <li><a href="#" class="button">More</a></li>
             </ul>
           </section>
-          <!-- Section -->
+
+          <!-- Get in touch -->
           <section>
-            <header class="major">
-              <h2>Get in touch</h2>
-            </header>
+            <header class="major"><h2>Get in touch</h2></header>
             <p>
               For inquiries or contributions related to water hyacinth
               monitoring, please contact our team.
@@ -288,7 +303,7 @@
               </li>
             </ul>
           </section>
-          <!-- Footer -->
+
           <footer id="footer">
             <p class="copyright">
               &copy; Hartebeesport Dam Water Hyacinth Monitoring. All rights
@@ -298,8 +313,8 @@
           </footer>
         </div>
       </div>
-      <!--side bar close-->
     </div>
+
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>

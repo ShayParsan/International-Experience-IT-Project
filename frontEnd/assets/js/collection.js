@@ -1,42 +1,31 @@
-const BASE_URL = "http://localhost:8080";
+document.addEventListener('DOMContentLoaded', () => {
+  const BASE_URL           = "http://localhost:8080";
+  const collectionsSection = document.getElementById('collectionsSection');
+  const nameRow            = document.getElementById('nameInputRow');
+  const nameInput          = document.getElementById('collectionName');
+  const user               = localStorage.getItem('user');
 
-  // 1) Update login/register UI based on localStorage.user
-  function updateLoginUI() {
-    const user = localStorage.getItem('user');
-    const loginBtn = document.getElementById('loginBtn');
-    const registerBtn = document.getElementById('registerBtn');
-    const nameInputRow = document.getElementById('nameInputRow');
-
-    if (user) {
-      loginBtn.innerText = 'Sign Out';
-      loginBtn.onclick = () => {
-        localStorage.removeItem('user');
-        location.reload();
-      };
-      registerBtn.style.display = 'none';
-      // hide manual name input if you always want to use the logged-in user
-      if (nameInputRow) nameInputRow.style.display = 'none';
-    } else {
-      loginBtn.innerText = 'Sign In';
-      loginBtn.onclick = openLogin; // assume you have this
-      registerBtn.style.display = '';
-      if (nameInputRow) nameInputRow.style.display = '';
-    }
+  // Show table only when logged in
+  if (user) {
+    collectionsSection.style.display = '';
+    if (nameRow)   nameRow.style.display = 'none';
+    if (nameInput) nameInput.disabled    = true;
   }
 
-  // 2) Fetch & render all collections
+  // Fetch & display current user's collections
   async function getCollections() {
     try {
       const res = await fetch(`${BASE_URL}/collections`);
       if (!res.ok) throw new Error(res.statusText);
-      const collections = await res.json();
+      const cols = await res.json();
       const tbody = document.querySelector("#collectionsTable tbody");
       tbody.innerHTML = "";
-      collections.forEach(col => {
+
+      cols.forEach(col => {
+        if (user && col.name !== user) return;
         const tr = document.createElement("tr");
         tr.innerHTML = `
           <td>${col.id}</td>
-          <td>${col.name}</td>
           <td>${col.address}</td>
           <td>${col.number}</td>
           <td>
@@ -51,32 +40,29 @@ const BASE_URL = "http://localhost:8080";
     }
   }
 
-  // 3) Add a new collection
+  // Add new collection
   document.getElementById("collectionForm").addEventListener("submit", async function(e) {
     e.preventDefault();
-    const user = localStorage.getItem('user');
-    // if logged in, use that as name; otherwise grab the name input
-    const name = user || document.getElementById("collectionName").value.trim();
-    if (!name) { 
+    const finalName = user || this.collectionName.value.trim();
+    if (!finalName) {
       alert("Please provide a name or log in.");
       if (!user) openLogin();
       return;
     }
     const payload = {
-      name,
-      address: document.getElementById("collectionAddress").value.trim(),
-      number: document.getElementById("collectionNumber").value.trim()
+      name:    finalName,
+      address: this.collectionAddress.value.trim(),
+      number:  this.collectionNumber.value.trim()
     };
     try {
       const res = await fetch(`${BASE_URL}/collections`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload)
+        body:    JSON.stringify(payload)
       });
-      if (!res.ok) throw new Error(res.statusText);
-      alert("Collection added successfully!");
+      if (!res.ok) throw new Error(await res.text());
+      alert("Collection added!");
       this.reset();
-      updateLoginUI(); // in case register/login buttons need toggling
       getCollections();
     } catch (err) {
       console.error("Error adding collection:", err);
@@ -84,63 +70,66 @@ const BASE_URL = "http://localhost:8080";
     }
   });
 
-  // 4) Delete a collection
-  async function deleteCollection(id) {
-    if (!confirm("Are you sure you want to delete this collection?")) return;
+  // Delete collection
+  window.deleteCollection = async id => {
+    if (!confirm("Are you sure?")) return;
     try {
       const res = await fetch(`${BASE_URL}/collections/${id}`, { method: "DELETE" });
-      if (!res.ok) throw new Error(res.statusText);
-      alert("Collection deleted!");
+      if (!res.ok) throw new Error(await res.text());
+      alert("Deleted!");
       getCollections();
     } catch (err) {
-      console.error("Error deleting collection:", err);
-      alert("Failed to delete collection.");
+      console.error("Error deleting:", err);
+      alert("Failed to delete.");
     }
-  }
+  };
 
-  // 5) Open & populate update modal
-  async function openUpdateModal(id) {
+  // Open update modal
+  window.openUpdateModal = async id => {
     try {
       const res = await fetch(`${BASE_URL}/collections/${id}`);
       if (!res.ok) throw new Error(res.statusText);
       const col = await res.json();
-      document.getElementById("updateCollectionId").value       = col.id;
-      document.getElementById("updateCollectionName").value     = col.name;
-      document.getElementById("updateCollectionAddress").value  = col.address;
-      document.getElementById("updateCollectionNumber").value   = col.number;
-      document.getElementById("updateModal").style.display = "block";
+      document.getElementById("updateCollectionId").value      = col.id;
+      document.getElementById("updateCollectionAddress").value = col.address;
+      document.getElementById("updateCollectionNumber").value  = col.number;
+      document.getElementById("updateModal").style.display     = "block";
     } catch (err) {
-      console.error("Error fetching collection:", err);
-      alert("Failed to fetch collection details.");
+      console.error("Error fetching:", err);
+      alert("Failed to load details.");
     }
-  }
+  };
 
-  function closeUpdateModal() {
+  // Close update modal
+  window.closeUpdateModal = () => {
     document.getElementById("updateModal").style.display = "none";
-  }
+  };
 
-  // 6) Handle the update form submission
+  // Handle update form
   document.getElementById("updateCollectionForm").addEventListener("submit", async function(e) {
     e.preventDefault();
-    const id = document.getElementById("updateCollectionId").value;
+    const id = this.updateCollectionId.value;
     const updated = {
-      name: document.getElementById("updateCollectionName").value.trim(),
-      address: document.getElementById("updateCollectionAddress").value.trim(),
-      number: document.getElementById("updateCollectionNumber").value.trim()
+      name:    localStorage.getItem('user') || this.updateCollectionName.value,
+      address: this.updateCollectionAddress.value,
+      number:  this.updateCollectionNumber.value
     };
     try {
       const res = await fetch(`${BASE_URL}/collections/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(updated)
+        body:    JSON.stringify(updated)
       });
-      if (!res.ok) throw new Error(res.statusText);
-      alert("Collection updated successfully!");
+      if (!res.ok) throw new Error(await res.text());
+      alert("Updated!");
       closeUpdateModal();
       getCollections();
     } catch (err) {
-      console.error("Error updating collection:", err);
-      alert("Failed to update collection.");
+      console.error("Error updating:", err);
+      alert("Failed to update.");
     }
   });
 
+  // Initial load
+  if (user) getCollections();
+});
