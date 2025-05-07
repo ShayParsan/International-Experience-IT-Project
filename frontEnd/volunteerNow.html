@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Volunteer Now- Hartebeesport Dam Water Hyacinth Monitoring</title>
+    <title>Volunteer Now – Hartebeesport Dam Water Hyacinth Monitoring</title>
     <meta charset="utf-8" />
     <meta
       name="viewport"
@@ -10,9 +10,8 @@
     <link rel="stylesheet" href="assets/css/main.css" />
   </head>
   <body class="is-preload">
-    <!-- Wrapper -->
     <div id="wrapper">
-      <!-- Main -->
+      <!-- Main Content -->
       <div id="main">
         <div class="inner">
           <!-- Header -->
@@ -31,8 +30,9 @@
               </li>
             </ul>
           </header>
+
+          <!-- Login Modal -->
           <div id="loginModal" class="login-modal">
-            <!-- login popup -->
             <div class="login-container">
               <span class="close-btn" onclick="closeLogin()">×</span>
               <h2>Login</h2>
@@ -55,8 +55,9 @@
               </form>
             </div>
           </div>
+
+          <!-- Register Modal -->
           <div id="registerModal" class="login-modal">
-            <!-- register popup-->
             <div class="login-container">
               <span class="close-btn" onclick="closeRegister()">×</span>
               <h2>Register</h2>
@@ -100,32 +101,23 @@
               </form>
             </div>
           </div>
-          <!-- Content -->
+
+          <!-- Volunteer Form -->
           <section>
-            <header class="main">
-              <h1>Volunteer Now</h1>
-            </header>
-            <span class="image main"
-              ><img src="images/pic13.jpg" alt="NO IMAGE YET"
-            /></span>
+            <header class="main"><h1>Volunteer Now</h1></header>
+            <span class="image main">
+              <img src="images/pic13.jpg" alt="NO IMAGE YET" />
+            </span>
             <p>
               Here you can volunteer to join a community clean up event or do a
-              standard hyacinth delivery to the company
+              standard hyacinth delivery to the company.
             </p>
             <hr class="major" />
-            <h2 id="NONE">Volunteer Form</h2>
-            <!-- Volunteer Form Section -->
+
             <form id="volunteerForm" action="#" method="post">
-              <div>
-                <label for="volunteerName">Full Name</label>
-                <input
-                  type="text"
-                  id="volunteerName"
-                  name="volunteerName"
-                  placeholder="Your Full Name"
-                  required
-                />
-              </div>
+              <!-- Hidden Full Name, auto-filled from logged-in user -->
+              <input type="hidden" id="volunteerName" name="volunteerName" />
+
               <div>
                 <label for="volunteerEmail">Email</label>
                 <input
@@ -136,6 +128,7 @@
                   required
                 />
               </div>
+
               <div>
                 <label for="volunteerEvent">Volunteer Event</label>
                 <select id="volunteerEvent" name="volunteerEvent" required>
@@ -143,6 +136,7 @@
                   <option value="hyacinthDelivery">Hyacinth Delivery</option>
                 </select>
               </div>
+
               <div>
                 <label for="volunteerMessage">Message (Optional)</label>
                 <textarea
@@ -152,19 +146,15 @@
                   placeholder="Any additional comments or preferences"
                 ></textarea>
               </div>
+
               <div>
                 <button type="submit" class="button">Submit</button>
               </div>
             </form>
-            <hr class="major" />
-            <h2 id="NONE">Volunteer Rewards</h2>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam,
-              accusantium.
-            </p>
           </section>
         </div>
       </div>
+
       <!-- Sidebar -->
       <div id="sidebar">
         <div class="inner">
@@ -174,11 +164,10 @@
               <input type="text" name="query" id="query" placeholder="Search" />
             </form>
           </section>
+
           <!-- Menu -->
           <nav id="menu">
-            <header class="major">
-              <h2>Menu</h2>
-            </header>
+            <header class="major"><h2>Menu</h2></header>
             <ul>
               <li><a href="index.html">Homepage</a></li>
               <li>
@@ -196,12 +185,12 @@
                     <a href="Community Engagement.html">Community Engagement</a>
                   </li>
                   <li>
-                    <a href="Community Engagement.html#cleanUpEvents"
-                      >Clean up events</a
-                    >
+                    <a href="Community Engagement.html#cleanUpEvents">
+                      Clean up events
+                    </a>
                   </li>
                   <li><a href="volunteerNow.html">Volunteer</a></li>
-                  <li><a href="#">My Volunteer rewards</a></li>
+                  <li><a href="rewards.html">My Volunteer Rewards</a></li>
                 </ul>
               </li>
               <li>
@@ -217,11 +206,10 @@
               <li><a href="#">About Us</a></li>
             </ul>
           </nav>
-          <!-- Section -->
+
+          <!-- Recent Updates -->
           <section>
-            <header class="major">
-              <h2>Recent Updates</h2>
-            </header>
+            <header class="major"><h2>Recent Updates</h2></header>
             <div class="mini-posts">
               <article>
                 <a href="dashboard.html" class="image"
@@ -246,38 +234,41 @@
               <li><a href="#" class="button">More</a></li>
             </ul>
           </section>
-          <!-- Section -->
+
+          <!-- Contact -->
           <section>
-            <header class="major">
-              <h2>Get in touch</h2>
-            </header>
+            <header class="major"><h2>Get in touch</h2></header>
             <p>
               For inquiries or contributions related to water hyacinth
               monitoring, please contact our team.
             </p>
             <ul class="contact">
               <li class="icon solid fa-envelope">
-                <a href="#">info@hartbeesprtdamhyacinthPrj.org</a>
+                <a href="mailto:info@hartbeesprtdamhyacinthPrj.org"
+                  >info@hartbeesprtdamhyacinthPrj.org</a
+                >
               </li>
               <li class="icon solid fa-phone">(000) 000-0000</li>
               <li class="icon solid fa-home">
                 Hartebeesport Dam<br />
-                City xyz, South Africa
+                City XYZ, South Africa
               </li>
             </ul>
           </section>
+
           <!-- Footer -->
           <footer id="footer">
             <p class="copyright">
               &copy; Hartebeesport Dam Water Hyacinth Monitoring. All rights
-              reserved. Images:
-              <a href="images used link">images used link here</a>.
+              reserved.<br />
+              Images: <a href="images used link">link</a>.<br />
+              Design: <a href="https://html5up.net">HTML5 UP</a>.
             </p>
           </footer>
         </div>
       </div>
-      <!--side bar close-->
     </div>
+
     <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/browser.min.js"></script>
@@ -285,6 +276,7 @@
     <script src="assets/js/util.js"></script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/loginregister.js"></script>
-    <script src="assets/js/forms.js"></script>
+    <script src="assets/js/seedingkoos.js"></script>
+    <script src="assets/js/Vollenteer.js"></script>
   </body>
 </html>
