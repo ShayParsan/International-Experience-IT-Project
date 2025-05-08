@@ -101,7 +101,7 @@ INSERT INTO regions (temperature, wind_direction, ph, salinity) VALUES
 -- Create Collections Table
 CREATE TABLE collections (
                              id INT AUTO_INCREMENT PRIMARY KEY,
-                             name VARCHAR(255) NOT NULL UNIQUE,
+                             name VARCHAR(255) NOT NULL ,
                              address VARCHAR(255) NOT NULL,
                              number VARCHAR(50) NOT NULL
 );
